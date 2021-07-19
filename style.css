@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    
+    overflow-x: hidden;
+    background-color:#555;
+
+}
+
+
+
+.container{
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width:100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+.container.show-nav{
+    transform: rotate(-20deg);
+}
+
+
+.content{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 3.25rem auto;
+    max-width: 1000px;
+    
+
+
+}
+
+.content small{
+    margin-bottom: .5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4rem;
+    color: #555;
+}
+
+.content h1{
+    font-size: 2.05rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+}
+
+.content p{
+    font-size: 1.2rem;
+    font-family: helvetica, arial;
+    line-height: 1.5;
+    margin: .5rem ;
+
+
+}
+.content h3{
+    margin-bottom: .5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.content>img{
+    max-width: 100%;
+}
+
+.circle-container{
+    position:fixed;
+    top:-65px;
+    left:-95px;
+}
+
+.circle{
+    background: #ff7979;
+    height: 180px;
+    width: 165px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle{
+    transform: rotate(-70deg);
+}
+
+.circle button{
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    left:50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: white;
+}
+
+.circle button:focus{
+    outline:none;
+}
+
+.circle button#open{
+    left:70%;
+}
+
+.circle button#close{
+    top:60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+.container.show-nav + nav li{
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+nav{
+    color:white;
+    position: fixed;
+    bottom: 40px;
+    left:0;
+    z-index: 100;
+    /*
+    transform: translate(-1000%);
+    transition: translate 0.7s ease;*/
+
+}
+nav ul{
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+nav ul li{
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform:translateX(-100%);
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i{
+    font-size: 20px;
+    margin-right: 10px;
+    
+}
+
+nav ul li + li{
+    margin-left: 20px;
+    transform:translateX(-150%);
+}
+
+nav ul li + li + li{
+    margin-left: 35px;
+    transform:translateX(-200%);
+}
+
+button#open,
+button#close{
+    -webkit-tap-highlight-color: transparent;
+}
